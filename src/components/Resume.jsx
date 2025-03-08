@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import Education from "../components/subComponents/Education"
 
 function Resume() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stops observing after animation starts
+        }
+      },
+      { threshold: 0.3 } // Triggers when 30% of the component is visible
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Div>
       <div className="title">
@@ -22,16 +41,16 @@ function Resume() {
         <h1>Experience</h1>
         <hr />
         <div className="grid_container">
-          <div className="exp2">
+          <div ref={ref} className={isVisible ? "exp" : ""}>
             <h1>2023-present</h1>
             <p className="title">MERN intern</p>
             <p className="subtitle">Lunar IT solution pvt. ltd.</p>
             <p className="description">
               <i>currently running</i>
             </p>
-            
           </div>
-          <div className="exp1">
+
+          <div ref={ref} className={isVisible ? "exp" : ""}>
             <h1>2020-2021</h1>
             <p className="title">Computer Repair and Maintenance</p>
             <p className="subtitle">Computer Planet</p>
@@ -111,13 +130,25 @@ const Div = styled.div`
       margin: 0 auto;
 
 
-      & > div {
+      .exp {
         box-sizing: border-box;
         border: none;
         background-color: ${({theme})=>theme.colors.bg};
         width: 40vw;
         padding: 1.5rem;
         border-radius: 1rem;
+        animation: in 1s ease 1;
+
+        @keyframes in{
+          from{
+            transform: translateY(5rem);
+            opacity: 0;
+          }
+          to{
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
         h1 {
           color: ${({ theme }) => theme.colors.green};
           text-align: left;

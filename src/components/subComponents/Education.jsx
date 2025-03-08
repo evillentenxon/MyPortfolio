@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
 function Resume() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stops observing after animation starts
+        }
+      },
+      { threshold: 0.3 } // Triggers when 30% of the component is visible
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Div>
       <div className="education">
         <h1>Education</h1>
         <hr />
         <div className="wrap_container">
-          <div className="edu3">
+          <div ref={ref} className={isVisible ? "edu" : ""}>
             <h1>2020-present</h1>
             <p className="title">
               Bachelor in Science . Computer Science and Information
@@ -17,13 +36,13 @@ function Resume() {
             <p className="subtitle">Godawari College</p>
             <p className="description">Private college of Itahari</p>
           </div>
-          <div className="edu2">
+          <div ref={ref} className={isVisible ? "edu" : ""}>
             <h1>2017-2020</h1>
             <p className="title">Higher Secondary School</p>
             <p className="subtitle">Vishwa Aadarsha College</p>
             <p className="description">Private college of Itahari</p>
           </div>
-          <div className="edu1">
+          <div ref={ref} className={isVisible ? "edu" : ""}>
             <h1>2017</h1>
             <p className="title">Secondary level Complete</p>
             <p className="subtitle">Balmiki Sec. Boarding School</p>
@@ -72,13 +91,26 @@ const Div = styled.div`
       gap: 1rem;
       margin: 0 auto;
 
-      & > div {
+      .edu {
         box-sizing: border-box;
         border: none;
         background-color: ${({ theme }) => theme.colors.bg};
         max-width: 40vw;
         padding: 1.5rem;
         border-radius: 1rem;
+        animation: in 1s ease 1;
+
+        @keyframes in {
+          from {
+            transform: translateY(5rem);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
         h1 {
           color: ${({ theme }) => theme.colors.green};
           text-align: left;
@@ -123,7 +155,7 @@ const Div = styled.div`
     color: #000;
   }
 
-  a{
+  a {
     text-decoration: none;
   }
 `;

@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import projects from "./project.json";
 import Counter from "./subComponents/Counter";
 
 function Work() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stops observing after animation starts
+        }
+      },
+      { threshold: 0.3 } // Triggers when 30% of the component is visible
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <Div>
       <h1>Projects</h1>
-      <p>
-        Below are some MERN project i have work for certain period of time.
-      </p>
+      <p>Below are some MERN project i have work for certain period of time.</p>
       <div className="my_projects">
         {projects.map((project, index) => (
-          <div className="proj" key={index}>
+          <div ref={ref} className={isVisible ? "proj" : "proj1"} key={index}>
             <a
               href={project.url}
               target="_blank"
@@ -126,6 +142,59 @@ const Div = styled.div`
       width: 100%;
       max-width: 300px;
       flex: 1 1 300px;
+      animation: in 1s ease 1;
+
+      @keyframes in {
+        from {
+          transform: translateY(5rem);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      * {
+        margin: 1rem 0;
+      }
+      a {
+        display: block;
+        max-width: 100%;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        transition: scale 0.5s ease;
+
+        &:hover {
+          scale: 1.1;
+        }
+      }
+
+      .proj_def {
+        h2 {
+          text-align: left;
+          font-size: 1.2rem;
+          transition: color 0.5s ease;
+          &:hover {
+            color: ${({ theme }) => theme.colors.green};
+            cursor: pointer;
+          }
+        }
+        p {
+          text-align: left;
+          margin: 0;
+          padding: 0;
+          font-weight: normal;
+        }
+      }
+    }
+
+    //before animation start
+    .proj1 {
+      width: 100%;
+      max-width: 300px;
+      flex: 1 1 300px;
+  
       * {
         margin: 1rem 0;
       }

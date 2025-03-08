@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
 const skills = [
@@ -12,13 +12,28 @@ const skills = [
 
 const SkillsBar = () => {
   const [animated, setAnimated] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => setAnimated(true), 500); // Delay animation start
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimated(true);
+          observer.disconnect(); // Stop observing once animation starts
+        }
+      },
+      { threshold: 0.3 } // Trigger when 30% of the component is visible
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <Div>
+    <Div ref={ref}>
       <div className="skills-container">
         {skills.map((skill, index) => (
           <div key={index} className="skill">
@@ -43,14 +58,13 @@ export default SkillsBar;
 const Div = styled.div`
   margin-top: 2rem;
   width: 100%;
+
   .skills-container {
-    /* width: 100%; */
-    /* max-width: 600px; */
     margin: 0 auto;
   }
 
   .skill {
-    margin-bottom: 20px; /* Increased spacing between skills */
+    margin-bottom: 20px;
   }
 
   .skill-label {
@@ -58,14 +72,14 @@ const Div = styled.div`
     font-size: 1rem;
     color: white;
     font-weight: normal;
-    margin-bottom: 8px; /* Increased margin for better spacing */
+    margin-bottom: 8px;
   }
 
   .skill-bar {
     width: 100%;
-    height: 10px; /* Increased height to make the bar thicker */
+    height: 10px;
     background-color: #5a5a5a;
-    border-radius: 10px; /* Slightly rounded corners */
+    border-radius: 10px;
     overflow: hidden;
   }
 
