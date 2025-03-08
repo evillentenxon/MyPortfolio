@@ -85,7 +85,7 @@ const Div = styled.div`
   position: sticky;
   top: 0;
   z-index: 999;
-  background: rgba(0, 0, 0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(6.7px);
   box-shadow: 0px 4px 4px rgba(146, 161, 176, 0.15);
 

@@ -11,7 +11,7 @@ function About() {
           <div className="intro">
             <p>Name: Kiran Gautam</p>
             <p>Job Role: Website Developer</p>
-            <p>Experience: 6 months </p>
+            <p>Experience: 1 year</p>
             <p>Address: sundarharaicha-03, Morang</p>
           </div>
         </div>
@@ -23,38 +23,29 @@ function About() {
       <div className="right">
         <h1>About Me</h1>
         <p>
-          With over 5 years of comprehensive experience in the field of data
-          science & analytics, accompanied by a bachelor's degree in
-          engineering. Proficient in data analysis, statistical analysis,
-          hypothesis testing, customer behaviour analysis, & machine learning.
-          Demonstrated success in leading impactful projects and providing
-          effective mentorship.
+          "Passionate about creating immersive digital experiences, I specialize
+          in building dynamic and user-friendly applications. With expertise in
+          modern web technologies, I love turning ideas into reality through
+          clean and efficient code. Always eager to learn and innovate, I strive
+          to push the boundaries of what's possible in the digital world."
         </p>
         <div className="details">
           <p>
             <span>Profile:</span>{" "}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Web app developer
-          </p>
-          <p>
-            <span>Domain:</span>{" "}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retail, Ecommerce,
-            BFSI & Digital Marketing
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Web app
+            developer
           </p>
           <p>
             <span>Education:</span> &nbsp;&nbsp;&nbsp;&nbsp;Bachelor of
             Engineering
           </p>
           <p>
-            <span>Language:</span> &nbsp;&nbsp;&nbsp;&nbsp;English, Hindi
+            <span>Language:</span> &nbsp;&nbsp;&nbsp;&nbsp;Nepali, English,
+            Hindi
           </p>
           <p>
-            <span>BI Tools:</span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Microsoft
-            Power BI, Looker & Tableau
-          </p>
-          <p>
-            <span>Other Skills:</span>&nbsp;&nbsp;&nbsp;Cloud, PySpark, Excel,
-            Git, JIRA, Google Analytics & SEO
+            <span>Other Skills:</span>&nbsp;&nbsp;&nbsp;Excel, Git, Cloud,
+            Figma, Word
           </p>
           <p>
             <span>Interest:</span>
@@ -130,8 +121,8 @@ const Div = styled.div`
         font-weight: normal;
         font-size: 1.5rem;
       }
-      span{
-        color: ${({theme})=>theme.colors.Pcolor};
+      span {
+        color: ${({ theme }) => theme.colors.Pcolor};
       }
     }
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import Education from "../components/subComponents/Education"
+import Education from "../components/subComponents/Education";
 
 function Resume() {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,10 +27,11 @@ function Resume() {
       <div className="title">
         <h1>Resume</h1>
         <p>
-          Seasoned Senior Data Analyst with 5+ years of experience driving
-          business strategies through data-driven insights. Proven expertise in
-          data science, statistical analysis, machine learning algorithms and
-          project management.
+          Aspiring web developer with a passion for creating interactive and
+          user-friendly applications. I've been coding for a year, continuously
+          honing my skills in modern web technologies. Currently interning at
+          Lunar IT pvt. ltd. , I'm gaining hands-on experience while exploring new ways to
+          build efficient and engaging digital solutions.
         </p>
         <br />
         <br />
@@ -70,7 +71,7 @@ function Resume() {
           </div>
         </div>
       </div>
-      <Education/>
+      <Education />
     </Div>
   );
 }
@@ -129,22 +130,21 @@ const Div = styled.div`
       gap: 1rem;
       margin: 0 auto;
 
-
       .exp {
         box-sizing: border-box;
         border: none;
-        background-color: ${({theme})=>theme.colors.bg};
+        background-color: ${({ theme }) => theme.colors.bg};
         width: 40vw;
         padding: 1.5rem;
         border-radius: 1rem;
         animation: in 1s ease 1;
 
-        @keyframes in{
-          from{
+        @keyframes in {
+          from {
             transform: translateY(5rem);
             opacity: 0;
           }
-          to{
+          to {
             transform: translateY(0);
             opacity: 1;
           }
