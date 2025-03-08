@@ -1,0 +1,27 @@
+[
+    {
+        "image": "/media/proj_1.jpg",
+        "title": "Digital Music Store Data Analysis using SQL",
+        "describ":"Analyzed music store data using advanced SQL queires to identify gaps and increase the business growth."
+    },
+    {
+        "image": "/media/proj_2.jpg",
+        "title": "Data Analysis using Python Project for Beginners",
+        "describ":"Performed exploratory data analysis on diwali sales data using Python to improve the customer experience."
+    },
+    {
+        "image": "/media/proj_3.jpg",
+        "title": "Power BI Sales dashboard Project for Beginners",
+        "describ":"Designed a power bi dashboard for Madhav Store to track and analyze the online sales data acorss India."
+    },
+    {
+        "image": "/media/proj_4.jpg",
+        "title": "Sales Forecast- Time Series Forecasting",
+        "describ":"Used multiple machine learning models to forecast sales (retail store) and performed time series analysis."
+    },
+    {
+        "image": "/media/proj_5.jpg",
+        "title": "Customer Segmentation using clustering model",
+        "describ":"Developed a ML model to give various recommendations of financial products & services on target customer groups."
+    }
+]
