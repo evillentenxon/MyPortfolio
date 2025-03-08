@@ -10,7 +10,10 @@ function Resume() {
         <div className="wrap_container">
           <div className="edu3">
             <h1>2020-present</h1>
-            <p className="title">Bachelor in Science . Computer Science and Information Technology(BSc.CSIT)</p>
+            <p className="title">
+              Bachelor in Science . Computer Science and Information
+              Technology(BSc.CSIT)
+            </p>
             <p className="subtitle">Godawari College</p>
             <p className="description">Private college of Itahari</p>
           </div>
@@ -29,7 +32,13 @@ function Resume() {
         </div>
       </div>
 
-      <button id="edu_btn">DOWNLOAD CV</button>
+      <a
+        href="https://drive.google.com/file/d/1_wp4b83bTmTwJlo7vZcV57bkPhumOQJF/view?usp=sharing"
+        target="_blank"
+        download="kiran_cv.pdf"
+      >
+        <button id="edu_btn">DOWNLOAD CV</button>
+      </a>
     </Div>
   );
 }
@@ -37,7 +46,7 @@ function Resume() {
 export default Resume;
 
 const Div = styled.div`
-margin-top: 5rem;
+  margin-top: 5rem;
   .education {
     h1 {
       text-align: center;
@@ -66,7 +75,7 @@ margin-top: 5rem;
       & > div {
         box-sizing: border-box;
         border: none;
-        background-color: ${({theme})=>theme.colors.bg};
+        background-color: ${({ theme }) => theme.colors.bg};
         max-width: 40vw;
         padding: 1.5rem;
         border-radius: 1rem;
@@ -100,7 +109,7 @@ margin-top: 5rem;
     }
   }
 
-  #edu_btn{
+  #edu_btn {
     border-radius: 2rem;
     border: none;
     width: 13rem;
@@ -108,9 +117,13 @@ margin-top: 5rem;
     font-weight: bold;
     font-size: 12px;
     cursor: pointer;
-    background: ${({theme})=>theme.colors.green};
+    background: ${({ theme }) => theme.colors.green};
     margin: 5rem auto;
     display: block;
     color: #000;
+  }
+
+  a{
+    text-decoration: none;
   }
 `;

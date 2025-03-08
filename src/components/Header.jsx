@@ -82,7 +82,11 @@ export default Header;
 
 const Div = styled.div`
   color: #fff;
-  /* position: fixed; */
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0,0.5);
+  backdrop-filter: blur(6.7px);
   box-shadow: 0px 4px 4px rgba(146, 161, 176, 0.15);
 
   .container {
@@ -90,6 +94,7 @@ const Div = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 4rem;
+    width: 100vw;
   }
 
   .left {
@@ -192,7 +197,7 @@ const Div = styled.div`
       nav {
         list-style-type: none;
 
-        a{
+        a {
           color: #fff;
           text-decoration: none;
         }

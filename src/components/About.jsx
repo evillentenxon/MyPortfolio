@@ -16,8 +16,8 @@ function About() {
           </div>
         </div>
         <div className="down">
-          <span>Skills</span>
-          <SkillsBar/>
+          <span id="skill_title">Skills</span>
+          <SkillsBar />
         </div>
       </div>
       <div className="right">
@@ -33,8 +33,7 @@ function About() {
         <div className="details">
           <p>
             <span>Profile:</span>{" "}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data
-            Science & Analytics
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Web app developer
           </p>
           <p>
             <span>Domain:</span>{" "}
@@ -68,7 +67,12 @@ function About() {
           <span>3+</span> projects completed
         </p>
 
-        <button>LinkedIn</button>
+        <a
+          href="https://www.linkedin.com/in/roman-gautam-19aaa8274/"
+          target="_blank"
+        >
+          <button>LinkedIn</button>
+        </a>
       </div>
     </Div>
   );
@@ -110,25 +114,31 @@ const Div = styled.div`
         max-height: 150px;
       }
 
-      .intro{
-        p{
+      .intro {
+        p {
           margin: 1rem 0;
         }
       }
     }
 
-    .down{
+    .down {
       padding: 4rem;
       display: flex;
       flex-direction: column;
-      align-items:baseline;
-      p{
-        /* margin:1rem; */
+      align-items: baseline;
+      #skill_title {
+        font-weight: normal;
+        font-size: 1.5rem;
+      }
+      span{
+        color: ${({theme})=>theme.colors.Pcolor};
       }
     }
   }
 
   .right {
+    box-sizing: border-box;
+    padding-right: 4rem;
     * {
       margin: 1rem 0;
     }

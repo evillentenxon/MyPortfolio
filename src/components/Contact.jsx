@@ -48,19 +48,33 @@ function Contact() {
       {/* ********************************************************  have a question */}
       <div className="question">
         <p>Have a Question ?</p>
-        <button>Click here</button>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfeUeG9xmF8jNpAWwFG7IjzUJOf8wGAFyNbbcNqPlCnIi7Mnw/viewform?usp=header"
+          target="_blank"
+        >
+          <button className="qabtn">Click here</button>
+        </a>
       </div>
       {/* ********************************************************  social media */}
       <div className="social">
         <p>Find me on</p>
         <div className="icon_container">
-          <FaLinkedinIn className="icon" />
+          <a
+            href="https://www.linkedin.com/in/roman-gautam-19aaa8274/"
+            target="_blank"
+          >
+            <FaLinkedinIn className="icon" />
+          </a>
         </div>
         <div className="icon_container">
-          <FaFacebookF className="icon" />
+          <a href="https://www.facebook.com/keyraw.an" target="_blank">
+            <FaFacebookF className="icon" />
+          </a>
         </div>
         <div className="icon_container">
-          <FaInstagram className="icon" />
+          <a href="https://www.instagram.com/romangautam5/">
+            <FaInstagram className="icon" />
+          </a>
         </div>
       </div>
 
@@ -155,7 +169,7 @@ const Div = styled.div`
       font-weight: bold;
     }
 
-    button {
+    .qabtn {
       background: ${({ theme }) => theme.colors.green};
       border: none;
       color: #000;
@@ -192,9 +206,9 @@ const Div = styled.div`
   }
 
   //********************************************  footer
-  footer{
+  footer {
     margin: 10rem;
-    p{
+    p {
       /* color: #fff; */
     }
   }

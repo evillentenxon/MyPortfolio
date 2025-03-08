@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import projects from "./project.json";
+import Counter from "./subComponents/Counter";
 
 function Work() {
   return (
     <Div>
       <h1>Projects</h1>
       <p>
-        Below are the sample Data Analytics projects on SQL, Python, Power BI &
-        ML.
+        Below are some MERN project i have work for certain period of time.
       </p>
       <div className="my_projects">
         {projects.map((project, index) => (
           <div className="proj" key={index}>
             <a
-              href="#"
+              href={project.url}
               target="_blank"
               style={{
                 backgroundImage: `url(${project.image})`,
@@ -40,25 +40,33 @@ function Work() {
         <div className="done_things">
           <div>
             <p>
-              <span>20</span>
+              <span>
+                <Counter end={0} />
+              </span>
               <br /> Achievements
             </p>
           </div>
           <div>
             <p>
-              <span>30</span>
+              <span>
+                <Counter end={3} />
+              </span>
               <br /> Projects
             </p>
           </div>
           <div>
             <p>
-              <span>1,000</span>
+              <span>
+                <Counter end={3} />
+              </span>
               <br /> Mentored Students
             </p>
           </div>
           <div>
             <p>
-              <span>500</span>
+              <span>
+                <Counter end={500} />
+              </span>
               <br /> Cups of coffee
             </p>
           </div>
@@ -69,7 +77,9 @@ function Work() {
             More projects on <span>Github</span>
           </h1>
           <p>I love to solve business problems & uncover hidden data stories</p>
-          <button>GITHUB</button>
+          <a href="https://github.com/evillentenxon" target="_blank">
+            <button>GITHUB</button>
+          </a>
         </div>
       </div>
     </Div>
@@ -215,6 +225,9 @@ const Div = styled.div`
         margin: 2rem auto;
         padding: 1.2rem 2.5rem;
         letter-spacing: 0.5cap;
+      }
+      a {
+        text-decoration: none;
       }
     }
   }

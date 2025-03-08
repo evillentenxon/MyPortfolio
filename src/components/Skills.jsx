@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const skills = [
-  { name: "SQL", percentage: 95 },
-  { name: "PYTHON", percentage: 85 },
-  { name: "Data Visualization", percentage: 90 },
-  { name: "Statistical Analysis", percentage: 85 },
-  { name: "Machine Learning", percentage: 80 },
+  { name: "MONGO DB", percentage: 85 },
+  { name: "REACT", percentage: 90 },
+  { name: "EXPRESS", percentage: 85 },
+  { name: "HTML", percentage: 100 },
+  { name: "CSS", percentage: 90 },
+  { name: "JAVASCRIPT", percentage: 85 },
 ];
 
 const SkillsBar = () => {
@@ -40,7 +41,8 @@ const SkillsBar = () => {
 export default SkillsBar;
 
 const Div = styled.div`
-width: 100%;
+  margin-top: 2rem;
+  width: 100%;
   .skills-container {
     /* width: 100%; */
     /* max-width: 600px; */
@@ -53,8 +55,9 @@ width: 100%;
 
   .skill-label {
     display: block;
-    font-size: 18px;
+    font-size: 1rem;
     color: white;
+    font-weight: normal;
     margin-bottom: 8px; /* Increased margin for better spacing */
   }
 

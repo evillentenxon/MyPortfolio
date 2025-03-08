@@ -36,7 +36,7 @@ function Home() {
           <div className="circle_border"></div>
         </div>
         <div className="right">
-          <img src="/media/profileDemo.png" alt="profile" />
+          <img src="/media/new.png" alt="profile" />
           <div class="graphic-circle"></div>
           <div class="graphic-dots"></div>
         </div>
@@ -54,13 +54,14 @@ export default Home;
 const Div = styled.div`
   width: 100vw;
   height: fit-content;
-  /* overflow: hidden; */
+  /* margin-top: 2rem; */
 
   .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 4rem;
+    /* margin-top: 2rem; */
 
     .right {
       /* height: 100%; */
