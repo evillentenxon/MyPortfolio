@@ -165,6 +165,14 @@ const Div = styled.div`
     button {
       background: ${({ theme }) => theme.colors.green};
       border: none;
+      border-radius: 2rem;
+      padding: 1rem;
+      margin: 0 1rem 0 0;
+      font-weight: normal;
+      cursor: pointer;
+      letter-spacing: 0.5cap;
+      text-transform: uppercase;
+      font-size: 12px;
     }
 
     .details {

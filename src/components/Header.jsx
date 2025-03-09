@@ -11,6 +11,11 @@ import { NavLink } from "react-router-dom";
 
 function Header() {
   const [toggle, setToggle] = useState(false);
+  const [activeItem, setActiveItem] = useState("Home");
+
+  const handleClick = (item) => {
+    setActiveItem(item);
+  };
 
   return (
     <Div>
@@ -22,21 +27,36 @@ function Header() {
 
         <div className="right">
           <nav>
-            <NavLink to="/">
-              <li>Home</li>
-            </NavLink>
-            <NavLink to="/about">
-              <li>About</li>
-            </NavLink>
-            <NavLink to="/resume">
-              <li>Resume</li>
-            </NavLink>
-            <NavLink to="/works">
-              <li>Work</li>
-            </NavLink>
-            <NavLink to="/contact">
-              <li>Contact</li>
-            </NavLink>
+            <li
+              className={activeItem === "Home" ? "active" : ""}
+              onClick={() => handleClick("Home")}
+            >
+              Home
+            </li>
+            <li
+              className={activeItem === "About" ? "active" : ""}
+              onClick={() => handleClick("About")}
+            >
+              About
+            </li>
+            <li
+              className={activeItem === "Resume" ? "active" : ""}
+              onClick={() => handleClick("Resume")}
+            >
+              Resume
+            </li>
+            <li
+              className={activeItem === "Work" ? "active" : ""}
+              onClick={() => handleClick("Work")}
+            >
+              Work
+            </li>
+            <li
+              className={activeItem === "Contact" ? "active" : ""}
+              onClick={() => handleClick("Contact")}
+            >
+              Contact
+            </li>
           </nav>
         </div>
         <GiHamburgerMenu
@@ -137,6 +157,29 @@ const Div = styled.div`
       }
       &:hover::after {
         transform: scale(1);
+      }
+    }
+
+    // ********************************************************  to set the nav active
+    .active {
+      position: relative;
+      overflow: hidden;
+      padding: 10px;
+      color: #fff;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-color: #2bd576;
+        transform: scale(1);
+        transform-origin: left;
+        transition: transform 0.3s ease;
       }
     }
   }

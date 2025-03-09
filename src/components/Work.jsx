@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import projects from "./project.json";
+import projects from "./projects_data/project.json";
 import Counter from "./subComponents/Counter";
 
 function Work() {
@@ -294,6 +294,7 @@ const Div = styled.div`
         margin: 2rem auto;
         padding: 1.2rem 2.5rem;
         letter-spacing: 0.5cap;
+        border-radius: 2rem;
       }
       a {
         text-decoration: none;

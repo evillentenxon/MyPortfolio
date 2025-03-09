@@ -146,13 +146,14 @@ const Div = styled.div`
     border: none;
     width: 13rem;
     height: 4rem;
-    font-weight: bold;
     font-size: 12px;
     cursor: pointer;
     background: ${({ theme }) => theme.colors.green};
     margin: 5rem auto;
     display: block;
     color: #000;
+    font-weight: normal;
+    letter-spacing: 0.5cap;
   }
 
   a {

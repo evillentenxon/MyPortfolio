@@ -170,12 +170,12 @@ const Div = styled.div`
     }
 
     .qabtn {
-      background: ${({ theme }) => theme.colors.green};
-      border: none;
-      color: #000;
       text-transform: uppercase;
-      height: fit-content;
+      background-color: ${({ theme }) => theme.colors.green};
+      border: none;
+      padding: 1.2rem 2.5rem;
       letter-spacing: 0.5cap;
+      border-radius: 2rem;
     }
   }
   //********************************************  find me on
