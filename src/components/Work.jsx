@@ -4,18 +4,24 @@ import projects from "./projects_data/project.json";
 import Counter from "./subComponents/Counter";
 
 function Work() {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
+  const [visibleItems, setVisibleItems] = useState({});
+  const refs = useRef([]);
 
   useEffect(() => {
+    refs.current = refs.current.slice(0, projects.length); // Ensure correct ref length
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting); // Set true when visible, false when out
+      (entries) => {
+        const newVisibility = {};
+        entries.forEach((entry) => {
+          newVisibility[entry.target.dataset.index] = entry.isIntersecting;
+        });
+        setVisibleItems((prev) => ({ ...prev, ...newVisibility }));
       },
-      { threshold: 0.3 } // Triggers when 30% of the component is visible
+      { threshold: 0.3 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    refs.current.forEach((ref) => ref && observer.observe(ref));
 
     return () => observer.disconnect();
   }, []);
@@ -26,13 +32,16 @@ function Work() {
       <p>Below are some MERN project i have work for certain period of time.</p>
       <div className="my_projects">
         {projects.map((project, index) => (
-          <div ref={ref} className={isVisible ? "proj" : "proj1"} key={index}>
+          <div
+            ref={(el) => (refs.current[index] = el)}
+            data-index={index}
+            className={visibleItems[index] ? "proj" : "proj1"}
+            key={index}
+          >
             <a
               href={project.url}
               target="_blank"
-              style={{
-                backgroundImage: `url(${project.image})`,
-              }}
+              style={{ backgroundImage: `url(${project.image})` }}
             ></a>
             <div className="proj_def">
               <h2>{project.title}</h2>

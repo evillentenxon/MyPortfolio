@@ -9,7 +9,7 @@ function Hero() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting); // Set true when visible, false when out
+        setIsVisible(true); // Set true when visible, false when out
       },
       { threshold: 0.3 } // Triggers when 30% of the component is visible
     );

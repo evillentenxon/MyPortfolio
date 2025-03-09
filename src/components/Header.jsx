@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SvgLogo from "./SvgLogo";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -14,14 +14,32 @@ function Header() {
   const [activeItem, setActiveItem] = useState("Home");
 
   const handleClick = (item) => {
-    setActiveItem(item);
-
-    // Scroll to the respective section smoothly
     const section = document.getElementById(item.toLowerCase());
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveItem(
+              entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1)
+            );
+          }
+        });
+      },
+      { threshold: 0.3 } // Adjust threshold to detect when 60% of the section is visible
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
 
   return (
     <Div>

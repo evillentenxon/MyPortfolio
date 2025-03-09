@@ -72,7 +72,7 @@ function About() {
 export default About;
 
 const Div = styled.div`
-  height: 100vh;
+  //height: 100vh;
   width: 100vw;
   background-color: black;
   display: flex;
