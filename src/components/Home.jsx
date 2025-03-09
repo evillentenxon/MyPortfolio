@@ -8,11 +8,21 @@ import Hero from "./Hero";
 function Home() {
   return (
     <>
-      <Hero />
-      <About />
-      <Resume />
-      <Work />
-      <Contact />
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="resume">
+        <Resume />
+      </section>
+      <section id="work">
+        <Work />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </>
   );
 }

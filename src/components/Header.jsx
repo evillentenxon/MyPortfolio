@@ -15,6 +15,12 @@ function Header() {
 
   const handleClick = (item) => {
     setActiveItem(item);
+
+    // Scroll to the respective section smoothly
+    const section = document.getElementById(item.toLowerCase());
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
