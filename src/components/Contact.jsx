@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { FaMapSigns } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -8,12 +8,28 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 
 function Contact() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting); // Set true when visible, false when out
+      },
+      { threshold: 0.3 } // Triggers when 30% of the component is visible
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Div>
       <h1>Contact Me</h1>
       <p>Below are the details to reach out to me!</p>
 
-      <div className="contact_icons">
+      <div ref={ref} className={isVisible ? "contact_icons" : ""}>
         <div>
           <center>
             <div className="icon_container">
@@ -120,6 +136,19 @@ const Div = styled.div`
     display: flex;
     gap: 2rem;
     justify-content: center;
+
+    animation: in 1s ease 1;
+
+    @keyframes in {
+      from {
+        transform: translateY(5rem);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
     & > div {
       /* width: max-content; */

@@ -1,7 +1,23 @@
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import AnimatedWords from "./subComponents/AnimatedWords";
 
 function Hero() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting); // Set true when visible, false when out
+      },
+      { threshold: 0.3 } // Triggers when 30% of the component is visible
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <Div>
       <div className="hero">
@@ -31,7 +47,12 @@ function Hero() {
           <div className="circle_border"></div>
         </div>
         <div className="right">
-          <img src="/media/new.png" alt="profile" />
+          <img
+            src="/media/new.png"
+            alt="profile"
+            ref={ref}
+            id={isVisible ? "img" : ""}
+          />
           <div class="graphic-circle"></div>
           <div class="graphic-dots"></div>
         </div>
@@ -56,8 +77,21 @@ const Div = styled.div`
 
     .right {
       /* height: 100%; */
-      img {
+      #img {
         width: 500px;
+
+        animation: in 1s ease 1;
+
+        @keyframes in {
+          from {
+            transform: translateY(5rem);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
       }
 
       .graphic-circle {
@@ -126,7 +160,7 @@ const Div = styled.div`
     margin: 0 1rem 0 0;
     font-weight: normal;
     cursor: pointer;
-    letter-spacing: .5cap;
+    letter-spacing: 0.5cap;
   }
 
   button:nth-child(1) {

@@ -9,10 +9,7 @@ function Resume() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stops observing after animation starts
-        }
+        setIsVisible(entry.isIntersecting); // Set true when visible, false when out
       },
       { threshold: 0.3 } // Triggers when 30% of the component is visible
     );

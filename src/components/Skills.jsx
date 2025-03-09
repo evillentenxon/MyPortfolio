@@ -17,17 +17,12 @@ const SkillsBar = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimated(true);
-          observer.disconnect(); // Stop observing once animation starts
-        }
+        setAnimated(entry.isIntersecting); // Set true when visible, false when out
       },
       { threshold: 0.3 } // Trigger when 30% of the component is visible
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    if (ref.current) observer.observe(ref.current);
 
     return () => observer.disconnect();
   }, []);

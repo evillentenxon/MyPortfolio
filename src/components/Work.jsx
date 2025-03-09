@@ -10,10 +10,7 @@ function Work() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stops observing after animation starts
-        }
+        setIsVisible(entry.isIntersecting); // Set true when visible, false when out
       },
       { threshold: 0.3 } // Triggers when 30% of the component is visible
     );
@@ -22,6 +19,7 @@ function Work() {
 
     return () => observer.disconnect();
   }, []);
+
   return (
     <Div>
       <h1>Projects</h1>
@@ -194,7 +192,7 @@ const Div = styled.div`
       width: 100%;
       max-width: 300px;
       flex: 1 1 300px;
-  
+
       * {
         margin: 1rem 0;
       }
