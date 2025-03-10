@@ -3,7 +3,14 @@ import styled from "styled-components";
 
 function Resume() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
   const ref = useRef(null);
+
+  useEffect(() => {
+    const checkScreenSize = () => setIsMobile(window.innerWidth <= 400);
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,8 +30,13 @@ function Resume() {
       <div className="education">
         <h1>Education</h1>
         <hr />
-        <div className="wrap_container">
-          <div ref={ref} className={isVisible ? "edu" : ""}>
+        {/* <div className={isVisible ? "wrap_container" : ""}> */}
+        <div
+          className={
+            isVisible && !isMobile ? "wrap_container animate" : "wrap_container"
+          }
+        >
+          <div ref={ref} className="edu">
             <h1>2020-present</h1>
             <p className="title">
               Bachelor in Science . Computer Science and Information
@@ -80,6 +92,21 @@ const Div = styled.div`
       opacity: 0.7;
     }
 
+    .wrap_container.animate {
+      animation: in 1s ease 1;
+
+      @keyframes in {
+        from {
+          transform: translateY(5rem);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+
     .wrap_container {
       display: flex;
       flex-wrap: wrap;
@@ -95,18 +122,6 @@ const Div = styled.div`
         max-width: 40vw;
         padding: 1.5rem;
         border-radius: 1rem;
-        animation: in 1s ease 1;
-
-        @keyframes in {
-          from {
-            transform: translateY(5rem);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
 
         h1 {
           color: ${({ theme }) => theme.colors.green};
@@ -155,5 +170,18 @@ const Div = styled.div`
 
   a {
     text-decoration: none;
+  }
+
+  /* ================extra small for mobile================= */
+  @media screen and (max-width: 360px) {
+    overflow-x: hidden;
+    .wrap_container {
+      animation: none;
+      animation-name: none;
+
+      .edu {
+        width: 80vw;
+      }
+    }
   }
 `;

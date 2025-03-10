@@ -241,4 +241,182 @@ const Div = styled.div`
       /* color: #fff; */
     }
   }
+
+  /* ================extra small for mobile================= */
+  @media (max-width: 360px) {
+    h1 {
+      position: relative;
+      font-size: 40px; /* Reduced size for smaller screens */
+      color: white;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    h1::before {
+      content: "Contact";
+      position: absolute;
+      opacity: 0.1;
+      font-size: 4rem;
+      font-weight: 700;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    p {
+      padding: 0 10%; /* Reduced padding */
+      font-weight: normal;
+      text-align: center;
+      color: ${({ theme }) => theme.colors.Pcolor};
+    }
+
+    //********************************************  contact icons
+    .contact_icons {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap; /* Wrap items on smaller screens */
+
+      animation: in 1s ease 1;
+
+      @keyframes in {
+        from {
+          transform: translateY(3rem);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      & > div {
+        flex: 1;
+        min-width: 120px; /* Ensures a nice layout on small screens */
+
+        p {
+          color: #fff;
+          font-weight: bold;
+          margin: 1rem;
+        }
+        .last {
+          color: ${({ theme }) => theme.colors.Pcolor};
+        }
+      }
+
+      .icon_container {
+        width: 4rem; /* Smaller size for small screens */
+        height: 4rem;
+        background: ${({ theme }) => theme.colors.bg};
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+
+        .icon {
+          font-size: 1.2rem; /* Reduce icon size */
+        }
+      }
+    }
+
+    //********************************************  have questions
+    .question {
+      display: flex;
+      flex-direction: column; /* Stack items on smaller screens */
+      justify-content: center;
+      align-items: center;
+      margin: 2rem;
+
+      p {
+        font-size: 1.5rem; /* Smaller font size */
+        color: #fff;
+        padding: 0;
+        margin: 1rem 0;
+        font-weight: bold;
+      }
+
+      .qabtn {
+        text-transform: uppercase;
+        background-color: ${({ theme }) => theme.colors.green};
+        border: none;
+        padding: 1rem 2rem; /* Adjusted padding */
+        font-size: 0.9rem;
+        border-radius: 1.5rem;
+      }
+    }
+
+    //********************************************  find me on
+    .social {
+      display: flex;
+      /* flex-direction: column; Stack social icons */
+      align-items: center;
+      gap: 1rem;
+
+      p {
+        margin-bottom: 0.5rem;
+      }
+
+      .icon_container {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        place-items: center;
+        background: ${({ theme }) => theme.colors.bg};
+
+        .icon {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    //********************************************  footer
+    footer {
+      margin: 5rem 0; /* Reduced margin */
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Media Query for Small Screens (max-width: 360px) */
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      h1::before {
+        font-size: 3rem;
+      }
+
+      p {
+        padding: 0 5%;
+      }
+
+      .contact_icons {
+        flex-direction: column; /* Stack contact details */
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .icon_container {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+
+      .question p {
+        font-size: 1.2rem;
+      }
+
+      .qabtn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.8rem;
+      }
+
+      .social {
+        gap: 0.8rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        margin: 3rem 0;
+      }
+    }
+  }
 `;

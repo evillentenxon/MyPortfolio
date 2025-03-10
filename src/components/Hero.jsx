@@ -177,4 +177,67 @@ const Div = styled.div`
   p {
     font-weight: bold;
   }
+
+  /* ================extra small for mobile================= */
+  @media screen and (max-width: 360px) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .left {
+      width: 100%;
+    }
+
+    .left span p {
+      font-size: 1.2rem;
+    }
+
+    .left h1 p {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .left p {
+      font-size: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .buttons button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    .circle_border {
+      width: 80px;
+      height: 80px;
+    }
+
+    .right {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .right img {
+      width: 80%;
+      max-width: 200px;
+    }
+
+    .graphic-circle,
+    .graphic-dots {
+      display: none; /* Hide extra graphics on small screens */
+    }
+  }
 `;

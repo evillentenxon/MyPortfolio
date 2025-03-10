@@ -308,4 +308,45 @@ const Div = styled.div`
       }
     }
   }
+
+  /* ================extra small for mobile================= */
+  @media (max-width: 360px) {
+    h1 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 14px;
+      padding: 0 5%;
+    }
+
+    .my_projects {
+      .proj,
+      .proj1 {
+        max-width: 100%;
+      }
+    }
+
+    .video_container {
+      .done_things {
+        & > div {
+          height: 100px;
+        }
+        span {
+          font-size: 1.5rem;
+        }
+      }
+      .more {
+        h1 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 12px;
+        }
+        button {
+          padding: 0.8rem 1.5rem;
+        }
+      }
+    }
+  }
 `;

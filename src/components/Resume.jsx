@@ -27,8 +27,8 @@ function Resume() {
           Aspiring web developer with a passion for creating interactive and
           user-friendly applications. I've been coding for a year, continuously
           honing my skills in modern web technologies. Currently interning at
-          Lunar IT pvt. ltd. , I'm gaining hands-on experience while exploring new ways to
-          build efficient and engaging digital solutions.
+          Lunar IT pvt. ltd. , I'm gaining hands-on experience while exploring
+          new ways to build efficient and engaging digital solutions.
         </p>
         <br />
         <br />
@@ -146,6 +146,7 @@ const Div = styled.div`
             opacity: 1;
           }
         }
+
         h1 {
           color: ${({ theme }) => theme.colors.green};
           text-align: left;
@@ -173,6 +174,38 @@ const Div = styled.div`
           margin: 1rem 0;
         }
       }
+    }
+  }
+
+  /* ================ Extra Small Screens (Mobile) < 360px ================ */
+  @media screen and (max-width: 360px) {
+    .title h1 {
+      font-size: 35px; /* Reduce font size */
+    }
+
+    .title h1::before {
+      font-size: 3rem; /* Adjust background text */
+    }
+
+    .title p {
+      padding: 0 10%; /* Reduce padding */
+    }
+
+    .resume h1 {
+      font-size: 28px; /* Reduce header font size */
+    }
+
+    .grid_container {
+      grid-template-columns: 1fr; /* Single column layout */
+      padding: 0 1rem; /* Reduce padding */
+      width: 100%; /* Full width */
+    }
+
+    .exp {
+      width: 90%; /* Make boxes more flexible */
+      animation: none; /* Remove animation */
+      opacity: 1; /* Ensure it's fully visible */
+      transform: translateY(0);
     }
   }
 `;

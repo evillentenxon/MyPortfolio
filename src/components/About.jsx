@@ -181,4 +181,69 @@ const Div = styled.div`
       }
     }
   }
+
+  /* ================extra small for mobile================= */
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
+    .left,
+    .right {
+      width: 100%;
+      text-align: center;
+    }
+
+    .up {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .up img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      font-size: 0.9rem;
+      margin: 4px 0;
+    }
+
+    .down {
+      margin-top: 1rem;
+    }
+
+    #skill_title {
+      font-size: 1.2rem;
+    }
+
+    .right h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .right p {
+      font-size: 1rem;
+      line-height: 1.4;
+      padding: 0 10px;
+    }
+
+    .details p {
+      font-size: 0.9rem;
+      text-align: left;
+      padding: 5px 15px;
+    }
+
+    #lastP {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+  }
 `;

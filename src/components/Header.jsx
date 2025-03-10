@@ -92,27 +92,27 @@ function Header() {
       <div className={`left-side-menu ${toggle ? "show" : ""}`}>
         <nav>
           <NavLink to="/">
-            <li>
+            <li onClick={() => setToggle(false)}>
               <FiHome /> Home
             </li>
           </NavLink>
           <NavLink to="/about">
-            <li>
+            <li onClick={() => setToggle(false)}>
               <FaRegUser /> About
             </li>
           </NavLink>
-          <NavLink to="/skills">
-            <li>
-              <LuMedal /> Skills
+          <NavLink to="/resume">
+            <li onClick={() => setToggle(false)}>
+              <LuMedal /> Resume
             </li>
           </NavLink>
           <NavLink to="/works">
-            <li>
+            <li onClick={() => setToggle(false)}>
               <MdOutlineWorkHistory /> Work
             </li>
           </NavLink>
           <NavLink to="/contact">
-            <li>
+            <li onClick={() => setToggle(false)}>
               <MdOutlineContactPhone /> Contact
             </li>
           </NavLink>
@@ -254,13 +254,12 @@ const Div = styled.div`
 
     .left-side-menu {
       position: fixed;
-      /* top: 0; */
-      left: -100%; // Start off-screen
-      width: 100%; // Adjust width as needed
+      left: -100%; 
+      width: 100%;
       height: 100vh;
-      background: rgba(245, 245, 245, 0.2); // Adjust background color
       transition: left 0.4s ease-in-out;
       z-index: 999;
+
       nav {
         list-style-type: none;
 
@@ -284,7 +283,10 @@ const Div = styled.div`
     }
 
     .show {
+      position: static;
       left: 0;
+      background-color: rgba(0, 0, 0, 0.1); 
+      backdrop-filter: blur(10px); 
     }
   }
 
