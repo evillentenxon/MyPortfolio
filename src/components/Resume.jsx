@@ -4,7 +4,14 @@ import Education from "../components/subComponents/Education";
 
 function Resume() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
   const ref = useRef(null);
+
+  useEffect(() => {
+    const checkScreenSize = () => setIsMobile(window.innerWidth <= 400);
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,8 +45,13 @@ function Resume() {
       <div className="resume">
         <h1>Experience</h1>
         <hr />
-        <div className="grid_container">
-          <div ref={ref} className={isVisible ? "exp" : ""}>
+        <div
+          ref={ref}
+          className={
+            isVisible && !isMobile ? "grid_container animate" : "grid_container"
+          }
+        >
+          <div className="exp">
             <h1>2023-present</h1>
             <p className="title">MERN intern</p>
             <p className="subtitle">Lunar IT solution pvt. ltd.</p>
@@ -48,7 +60,7 @@ function Resume() {
             </p>
           </div>
 
-          <div ref={ref} className={isVisible ? "exp" : ""}>
+          <div className="exp">
             <h1>2020-2021</h1>
             <p className="title">Computer Repair and Maintenance</p>
             <p className="subtitle">Computer Planet</p>
@@ -118,6 +130,21 @@ const Div = styled.div`
       opacity: 0.7;
     }
 
+    .grid_container.animate {
+      animation: in 1s ease 1;
+
+      @keyframes in {
+        from {
+          transform: translateY(5rem);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+    
     .grid_container {
       display: grid;
       grid-template-columns: auto auto;
@@ -134,18 +161,6 @@ const Div = styled.div`
         width: 40vw;
         padding: 1.5rem;
         border-radius: 1rem;
-        animation: in 1s ease 1;
-
-        @keyframes in {
-          from {
-            transform: translateY(5rem);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
 
         h1 {
           color: ${({ theme }) => theme.colors.green};
@@ -179,32 +194,20 @@ const Div = styled.div`
 
   /* ================ Extra Small Screens (Mobile) < 360px ================ */
   @media screen and (max-width: 360px) {
-    .title h1 {
-      font-size: 35px; /* Reduce font size */
-    }
-
-    .title h1::before {
-      font-size: 3rem; /* Adjust background text */
-    }
-
-    .title p {
-      padding: 0 10%; /* Reduce padding */
-    }
-
-    .resume h1 {
-      font-size: 28px; /* Reduce header font size */
-    }
-
-    .grid_container {
-      grid-template-columns: 1fr; /* Single column layout */
+    .resume .grid_container {
+      display: flex; /* Override grid if necessary */
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center content */
+      width: 100%; /* Ensure full width */
       padding: 0 1rem; /* Reduce padding */
-      width: 100%; /* Full width */
     }
 
     .exp {
-      width: 90%; /* Make boxes more flexible */
-      animation: none; /* Remove animation */
-      opacity: 1; /* Ensure it's fully visible */
+      width: 100% !important; /* Ensure full width */
+      max-width: 90%; /* Keep some spacing */
+      margin: 0 auto; /* Center the items */
+      animation: none; /* Remove animation for debugging */
+      opacity: 1; /* Ensure visibility */
       transform: translateY(0);
     }
   }

@@ -30,13 +30,13 @@ function Resume() {
       <div className="education">
         <h1>Education</h1>
         <hr />
-        {/* <div className={isVisible ? "wrap_container" : ""}> */}
         <div
+          ref={ref}
           className={
             isVisible && !isMobile ? "wrap_container animate" : "wrap_container"
           }
         >
-          <div ref={ref} className="edu">
+          <div className="edu">
             <h1>2020-present</h1>
             <p className="title">
               Bachelor in Science . Computer Science and Information
@@ -45,13 +45,13 @@ function Resume() {
             <p className="subtitle">Godawari College</p>
             <p className="description">Private college of Itahari</p>
           </div>
-          <div ref={ref} className={isVisible ? "edu" : ""}>
+          <div className="edu">
             <h1>2017-2020</h1>
             <p className="title">Higher Secondary School</p>
             <p className="subtitle">Vishwa Aadarsha College</p>
             <p className="description">Private college of Itahari</p>
           </div>
-          <div ref={ref} className={isVisible ? "edu" : ""}>
+          <div className="edu">
             <h1>2017</h1>
             <p className="title">Secondary level Complete</p>
             <p className="subtitle">Balmiki Sec. Boarding School</p>
@@ -174,14 +174,18 @@ const Div = styled.div`
 
   /* ================extra small for mobile================= */
   @media screen and (max-width: 360px) {
-    overflow-x: hidden;
     .wrap_container {
-      animation: none;
-      animation-name: none;
+      display: flex;
+      flex-direction: column; /* Ensure a vertical layout */
+      align-items: center; /* Center the cards */
+      width: 100%;
+    }
 
-      .edu {
-        width: 80vw;
-      }
+    .wrap_container .edu {
+      max-width: 90% !important; /* Force override */
+      width: 90% !important; /* Make sure it takes the correct width */
+      background: red;
+      text-align: center; /* Optional: Centers text for a better look */
     }
   }
 `;

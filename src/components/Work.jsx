@@ -5,23 +5,24 @@ import Counter from "./subComponents/Counter";
 
 function Work() {
   const [visibleItems, setVisibleItems] = useState({});
-  const refs = useRef([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
+  const ref = useRef([]);
 
   useEffect(() => {
-    refs.current = refs.current.slice(0, projects.length); // Ensure correct ref length
+    const checkScreenSize = () => setIsMobile(window.innerWidth <= 400);
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
+  useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        const newVisibility = {};
-        entries.forEach((entry) => {
-          newVisibility[entry.target.dataset.index] = entry.isIntersecting;
-        });
-        setVisibleItems((prev) => ({ ...prev, ...newVisibility }));
+      ([entry]) => {
+        setVisibleItems(entry.isIntersecting); // Set true when visible, false when out
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 } // Triggers when 30% of the component is visible
     );
 
-    refs.current.forEach((ref) => ref && observer.observe(ref));
+    if (ref.current) observer.observe(ref.current);
 
     return () => observer.disconnect();
   }, []);
@@ -30,14 +31,14 @@ function Work() {
     <Div>
       <h1>Projects</h1>
       <p>Below are some MERN project i have work for certain period of time.</p>
-      <div className="my_projects">
+      <div
+        ref={ref}
+        className={
+          visibleItems && !isMobile ? "my_projects animate" : "my_projects"
+        }
+      >
         {projects.map((project, index) => (
-          <div
-            ref={(el) => (refs.current[index] = el)}
-            data-index={index}
-            className={visibleItems[index] ? "proj" : "proj1"}
-            key={index}
-          >
+          <div data-index={index} className="proj" key={index}>
             <a
               href={project.url}
               target="_blank"
@@ -137,6 +138,22 @@ const Div = styled.div`
   }
 
   // ************************************************   my projects
+
+  .my_projects.animate {
+    animation: in 1s ease 1;
+
+    @keyframes in {
+      from {
+        transform: translateY(5rem);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+
   .my_projects {
     display: flex;
     flex-wrap: wrap;
@@ -146,58 +163,6 @@ const Div = styled.div`
     margin-bottom: 10rem;
 
     .proj {
-      width: 100%;
-      max-width: 300px;
-      flex: 1 1 300px;
-      animation: in 1s ease 1;
-
-      @keyframes in {
-        from {
-          transform: translateY(5rem);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-      * {
-        margin: 1rem 0;
-      }
-      a {
-        display: block;
-        max-width: 100%;
-        height: 200px;
-        background-size: cover;
-        background-position: center;
-        transition: scale 0.5s ease;
-
-        &:hover {
-          scale: 1.1;
-        }
-      }
-
-      .proj_def {
-        h2 {
-          text-align: left;
-          font-size: 1.2rem;
-          transition: color 0.5s ease;
-          &:hover {
-            color: ${({ theme }) => theme.colors.green};
-            cursor: pointer;
-          }
-        }
-        p {
-          text-align: left;
-          margin: 0;
-          padding: 0;
-          font-weight: normal;
-        }
-      }
-    }
-
-    //before animation start
-    .proj1 {
       width: 100%;
       max-width: 300px;
       flex: 1 1 300px;
