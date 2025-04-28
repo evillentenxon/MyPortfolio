@@ -1,0 +1,20 @@
+[
+    {
+        "image": "/media/cellpoint.webp",
+        "title": "CellPoint Mobile Shop",
+        "describ":"CellPoint is a e-commerce website where you can browse mobile items and other accessories. You can also search items of stock. Payment integration is included with khalti wallet.",
+        "url":"https://github.com/evillentenxon/cellpoint_backend"
+    },
+    {
+        "image": "/media/lab2home.webp",
+        "title": "lab2home",
+        "describ":"Lab2Home allows you to send emails with attachments from any remote or public computer without the need to log in to your email or create a new account. Originally developed as a student project, it was designed to simplify sending notes from college lab computers without the hassle of email authentication.",
+        "url":"https://github.com/evillentenxon/lab2home"
+    },
+    {
+        "image": "/media/gamingOrbit.png",
+        "title": "GamingOrbit: Gaming Community",
+        "describ":"It improves the interaction with gamers. Have features to create tournament, create tournament bracket(tiesheet), live stream, watch live stream. Gives game news update, rate and review games. Of course with authentication and login",
+        "url":"https://github.com/evillentenxon/gobe"
+    }
+]
