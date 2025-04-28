@@ -33,13 +33,21 @@ function Header() {
           }
         });
       },
-      { threshold: 0.3 } // Adjust threshold to detect when 60% of the section is visible
+      { threshold: 0.3 }
     );
 
     sections.forEach((section) => observer.observe(section));
 
     return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
+
+  useEffect(() => {
+    if (toggle) {
+      document.body.style.overflow = "hidden"; // Lock the scroll
+    } else {
+      document.body.style.overflow = "auto"; // Unlock the scroll
+    }
+  }, [toggle]);
 
   return (
     <Div>
@@ -89,7 +97,7 @@ function Header() {
         />
       </div>
 
-      <div className={`left-side-menu ${toggle ? "show" : ""}`}>
+      <div className={`left-side-menu ${toggle ? "show" : "hide"}`}>
         <nav>
           <NavLink to="/">
             <li onClick={() => setToggle(false)}>
@@ -230,14 +238,12 @@ const Div = styled.div`
   /* ========= mobile query ====================== */
   @media (max-width: 800px) {
     display: block;
-    /* box-shadow: none; */
     box-shadow: 0px 4px 4px rgba(146, 161, 176, 0.15);
 
     .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      /* box-shadow: 0px 4px 4px rgba(146, 161, 176, 0.15); */
     }
     .right {
       display: none;
@@ -254,7 +260,7 @@ const Div = styled.div`
 
     .left-side-menu {
       position: fixed;
-      left: -100%; 
+      left: -100%;
       width: 100%;
       height: 100vh;
       transition: left 0.4s ease-in-out;
@@ -284,9 +290,26 @@ const Div = styled.div`
 
     .show {
       position: static;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.1); 
-      backdrop-filter: blur(10px); 
+      background-color: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      animation: slide-in 0.6s ease forwards;
+    }
+
+    .hide {
+      animation: slide-out 0.4s ease forwards;
+      background-color: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+
+      @keyframes slide-out {
+        from {
+          left: 0;
+          opacity: 1;
+        }
+        to {
+          left: -100%;
+          opacity: 0;
+        }
+      }
     }
   }
 

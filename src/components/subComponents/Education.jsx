@@ -26,8 +26,7 @@ function Resume() {
           <div className="edu">
             <h1>2020-present</h1>
             <p className="title">
-              Bachelor in Science . Computer Science and Information
-              Technology(BSc.CSIT)
+              Bachelor in Science . Computer Science and Information Technology (BSc.CSIT)
             </p>
             <p className="subtitle">Godawari College</p>
             <p className="description">Private college of Itahari</p>
@@ -42,7 +41,7 @@ function Resume() {
             <h1>2017</h1>
             <p className="title">Secondary level Complete</p>
             <p className="subtitle">Balmiki Sec. Boarding School</p>
-            <p className="description">Boarding school located in biratnagar</p>
+            <p className="description">Boarding school located in Biratnagar</p>
           </div>
         </div>
       </div>
@@ -78,63 +77,68 @@ const Div = styled.div`
     h1 {
       text-align: center;
     }
+
     hr {
       border: none;
       height: 4px;
-      background: linear-gradient(
-        to right,
-        #fff,
-        #2bd576
-      ); /* Changes the color */
+      background: linear-gradient(to right, #fff, #2bd576);
       width: 80%;
-      margin: 20px auto; /* Centers it */
+      margin: 20px auto;
       opacity: 0.7;
     }
 
     .wrap_container {
       display: flex;
       flex-wrap: wrap;
-      padding: 0 4rem;
-      width: fit-content;
-      gap: 1rem;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0 2rem;
       margin: 0 auto;
 
       .edu {
-        box-sizing: border-box;
-        border: none;
         background-color: ${({ theme }) => theme.colors.bg};
-        max-width: 40vw;
-        padding: 1.5rem;
         border-radius: 1rem;
+        padding: 2rem;
+        max-width: 350px;
+        flex: 1 1 300px; /* Allow flexibility */
         animation: moveRight linear;
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
 
         h1 {
           color: ${({ theme }) => theme.colors.green};
-          text-align: left;
-        }
-        .title {
           font-size: 1.5rem;
+          margin-bottom: 0.5rem;
         }
+
+        .title {
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
         .subtitle {
           font-size: 1rem;
           text-transform: uppercase;
-          font-family: monospace;
           color: ${({ theme }) => theme.colors.Pcolor};
-          margin-bottom: 2rem;
+          font-family: monospace;
+          margin-bottom: 1rem;
         }
+
         .description {
           color: ${({ theme }) => theme.colors.Pcolor};
         }
+
         ul {
           padding-left: 2rem;
+
           li {
             color: ${({ theme }) => theme.colors.Pcolor};
           }
         }
+
         * {
-          margin: 1rem 0;
+          margin: 0.5rem 0;
         }
       }
     }
@@ -145,34 +149,31 @@ const Div = styled.div`
     border: none;
     width: 13rem;
     height: 4rem;
-    font-size: 12px;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     background: ${({ theme }) => theme.colors.green};
-    margin: 5rem auto;
+    margin: 4rem auto 0;
     display: block;
     color: #000;
-    font-weight: normal;
-    letter-spacing: 0.5cap;
+    letter-spacing: 0.05em;
   }
 
   a {
     text-decoration: none;
   }
 
-  /* ================extra small for mobile================= */
-  @media screen and (max-width: 360px) {
+  /* ================ Responsive Design ================ */
+  @media screen and (max-width: 768px) {
     .wrap_container {
-      display: flex;
-      flex-direction: column; /* Ensure a vertical layout */
-      align-items: center; /* Center the cards */
-      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
     }
 
-    .wrap_container .edu {
-      max-width: 90% !important; /* Force override */
-      width: 90% !important; /* Make sure it takes the correct width */
-      background: red;
-      text-align: center; /* Optional: Centers text for a better look */
+    .edu {
+      max-width: 90% !important;
+      width: 100%;
     }
   }
 `;

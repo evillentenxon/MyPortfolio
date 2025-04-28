@@ -1,78 +1,65 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import Education from "../components/subComponents/Education";
 
 function Resume() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
-  const ref = useRef(null);
-
   return (
-    <Div>
+    <Wrapper>
       <div className="title">
         <h1>Resume</h1>
         <p>
           Aspiring web developer with a passion for creating interactive and
           user-friendly applications. I've been coding for a year, continuously
           honing my skills in modern web technologies. Currently interning at
-          Lunar IT pvt. ltd. , I'm gaining hands-on experience while exploring
+          Lunar IT Pvt. Ltd., I'm gaining hands-on experience while exploring
           new ways to build efficient and engaging digital solutions.
         </p>
-        <br />
-        <br />
-        <br />
       </div>
 
-      <div className="resume">
+      <section className="resume">
         <h1>Experience</h1>
         <hr />
-        <div
-          ref={ref}
-          className={
-            isVisible && !isMobile ? "grid_container animate" : "grid_container"
-          }
-        >
+        <div className="grid_container">
           <div className="exp">
-            <h1>2023-present</h1>
-            <p className="title">MERN intern</p>
-            <p className="subtitle">Lunar IT solution pvt. ltd.</p>
+            <h2>2023–Present</h2>
+            <p className="title">MERN Intern</p>
+            <p className="subtitle">Lunar IT Solution Pvt. Ltd.</p>
             <p className="description">
-              <i>currently running</i>
+              <i>Currently running</i>
             </p>
           </div>
 
           <div className="exp">
-            <h1>2020-2021</h1>
+            <h2>2020–2021</h2>
             <p className="title">Computer Repair and Maintenance</p>
             <p className="subtitle">Computer Planet</p>
             <p className="description">
-              Computer Planet is one of the biggest IT shop of Biratnagar. It
-              provides both hardware and software services.
+              Computer Planet is one of the biggest IT shops in Biratnagar,
+              providing both hardware and software services.
             </p>
             <ul>
-              <li>Learned how system works.</li>
-              <li>
-                Able to diagnosis the system and identify where the problem.
-              </li>
-              <li>
-                Installed new device components and software into the system.
-              </li>
+              <li>Learned how systems work.</li>
+              <li>Diagnosed and identified system problems.</li>
+              <li>Installed new device components and software.</li>
             </ul>
           </div>
         </div>
-      </div>
+      </section>
+
       <Education />
-    </Div>
+    </Wrapper>
   );
 }
 
 export default Resume;
 
-const Div = styled.div`
+const Wrapper = styled.div`
+  padding: 2rem 1rem;
+
   @keyframes moveRight {
     from {
       opacity: 0;
-      transform: translateX(-100px);
+      transform: translateX(-50px);
     }
     to {
       opacity: 1;
@@ -81,114 +68,133 @@ const Div = styled.div`
   }
 
   .title {
+    text-align: center;
+    margin-bottom: 4rem;
+
     h1 {
       position: relative;
-      font-size: 50px;
+      font-size: 3rem;
       color: white;
-      margin: 2rem 0;
-      text-align: center;
     }
 
     h1::before {
       content: "Resume";
       position: absolute;
-      opacity: 0.1;
-      font-size: 5rem;
-      font-weight: 700;
+      top: -20px;
       left: 50%;
       transform: translateX(-50%);
+      opacity: 0.08;
+      font-size: 6rem;
+      font-weight: 800;
+      white-space: nowrap;
+      pointer-events: none;
     }
+
     p {
-      padding: 0 20%;
-      text-align: center;
+      margin-top: 1.5rem;
+      padding: 0 15%;
       color: ${({ theme }) => theme.colors.Pcolor};
+      font-size: 1rem;
+      line-height: 1.7;
     }
   }
 
   .resume {
+    text-align: center;
+
     h1 {
-      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
+
     hr {
-      border: none; /* Removes the default border */
-      height: 4px; /* Sets the thickness */
-      background: linear-gradient(
-        to right,
-        #fff,
-        #2bd576
-      ); /* Changes the color */
+      border: none;
+      height: 3px;
       width: 80%;
-      margin: 20px auto; /* Centers it */
-      opacity: 0.7;
+      margin: 1rem auto 2rem;
+      background: linear-gradient(to right, #fff, #2bd576);
+      opacity: 0.8;
     }
 
     .grid_container {
       display: grid;
-      grid-template-columns: auto auto;
-      padding: 0 4rem;
-      justify-items: center;
-      width: fit-content;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 90%;
       margin: 0 auto;
+      padding: 1rem 0;
 
       .exp {
-        box-sizing: border-box;
-        border: none;
         background-color: ${({ theme }) => theme.colors.bg};
-        width: 40vw;
-        padding: 1.5rem;
         border-radius: 1rem;
-        animation: moveRight linear;
+        padding: 2rem;
+        animation: moveRight 1s ease forwards;
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
 
-        h1 {
+        h2 {
           color: ${({ theme }) => theme.colors.green};
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
           text-align: left;
         }
+
         .title {
-          font-size: 1.5rem;
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          text-align: left;
         }
+
         .subtitle {
           font-size: 1rem;
-          text-transform: uppercase;
           font-family: monospace;
           color: ${({ theme }) => theme.colors.Pcolor};
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
+          text-align: left;
+          text-transform: uppercase;
         }
+
         .description {
           color: ${({ theme }) => theme.colors.Pcolor};
+          margin-bottom: 1rem;
+          text-align: left;
         }
+
         ul {
-          padding-left: 2rem;
+          list-style: disc;
+          margin-left: 1.5rem;
+          text-align: left;
           li {
+            margin-bottom: 0.5rem;
             color: ${({ theme }) => theme.colors.Pcolor};
           }
-        }
-        * {
-          margin: 1rem 0;
         }
       }
     }
   }
 
-  /* ================ Extra Small Screens (Mobile) < 360px ================ */
-  @media screen and (max-width: 360px) {
-    .resume .grid_container {
-      display: flex; /* Override grid if necessary */
-      flex-direction: column; /* Stack items vertically */
-      align-items: center; /* Center content */
-      width: 100%; /* Ensure full width */
-      padding: 0 1rem; /* Reduce padding */
+  @media (max-width: 768px) {
+    .title p {
+      padding: 0 5%;
     }
 
-    .exp {
-      width: 100% !important; /* Ensure full width */
-      max-width: 90%; /* Keep some spacing */
-      margin: 0 auto; /* Center the items */
-      animation: none; /* Remove animation for debugging */
-      opacity: 1; /* Ensure visibility */
-      transform: translateY(0);
+    .resume .grid_container {
+      width: 95%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title h1 {
+      font-size: 2.5rem;
+    }
+
+    .title h1::before {
+      font-size: 4rem;
+    }
+
+    .resume h1 {
+      font-size: 2rem;
     }
   }
 `;

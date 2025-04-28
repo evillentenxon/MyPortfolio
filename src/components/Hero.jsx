@@ -9,15 +9,16 @@ function Hero() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(true); // Set true when visible, false when out
+        setIsVisible(true);
       },
-      { threshold: 0.3 } // Triggers when 30% of the component is visible
+      { threshold: 0.3 }
     );
 
     if (ref.current) observer.observe(ref.current);
 
     return () => observer.disconnect();
   }, []);
+
   return (
     <Div>
       <div className="hero">
@@ -53,8 +54,8 @@ function Hero() {
             ref={ref}
             id={isVisible ? "img" : ""}
           />
-          <div class="graphic-circle"></div>
-          <div class="graphic-dots"></div>
+          <div className="graphic-circle"></div>
+          <div className="graphic-dots"></div>
         </div>
       </div>
     </Div>
@@ -66,20 +67,27 @@ export default Hero;
 const Div = styled.div`
   width: 100vw;
   height: fit-content;
-  /* margin-top: 2rem; */
+  overflow-x: hidden;
 
   .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 4rem;
-    /* margin-top: 2rem; */
+    flex-wrap: wrap; /* For small screens */
+    position: relative;
 
     .right {
-      /* height: 100%; */
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      margin-top: 2rem;
+
       #img {
         width: 500px;
-
+        max-width: 100%;
         animation: in 1s ease 1;
 
         @keyframes in {
@@ -103,7 +111,7 @@ const Div = styled.div`
         top: 20%;
         right: 10%;
         opacity: 0.5;
-        z-index: -1; /* Send it behind the person */
+        z-index: -1;
         animation: scaleIn 2.5s 1;
 
         @keyframes scaleIn {
@@ -129,6 +137,8 @@ const Div = styled.div`
     }
 
     .left {
+      flex: 1;
+      min-width: 300px;
       .circle_border {
         width: 600px;
         height: 600px;
@@ -161,11 +171,13 @@ const Div = styled.div`
     font-weight: normal;
     cursor: pointer;
     letter-spacing: 0.5cap;
+    font-size: 1rem;
   }
 
   button:nth-child(1) {
     background: ${({ theme }) => theme.colors.green};
     border: none;
+    color: white;
   }
 
   button:nth-child(2) {
@@ -178,66 +190,91 @@ const Div = styled.div`
     font-weight: bold;
   }
 
-  /* ================extra small for mobile================= */
-  @media screen and (max-width: 360px) {
+  /* ------------ RESPONSIVE MEDIA QUERIES --------------- */
+  @media (max-width: 1024px) {
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: column-reverse;
+      padding: 2rem;
       text-align: center;
+
+      .left {
+        .circle_border {
+          display: none; /* Hide on smaller screens */
+        }
+      }
+
+      .right {
+        .graphic-circle {
+          width: 300px;
+          height: 300px;
+          top: 10%;
+          right: 0;
+        }
+        .graphic-dots {
+          width: 150px;
+          height: 150px;
+          top: 30%;
+          right: 0;
+        }
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      span {
+        font-size: 3rem;
+      }
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
       padding: 1rem;
+      .right {
+        #img {
+          width: 300px;
+        }
+      }
     }
 
-    .left {
-      width: 100%;
+    h1 {
+      font-size: 2rem;
+      span {
+        font-size: 2.5rem;
+      }
     }
 
-    .left span p {
-      font-size: 1.2rem;
+    button {
+      font-size: 0.9rem;
+      padding: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 1rem 0.5rem;
+      .right {
+        #img {
+          width: 250px;
+        }
+      }
     }
 
-    .left h1 p {
+    h1 {
       font-size: 1.8rem;
-      font-weight: bold;
+      span {
+        font-size: 2.2rem;
+      }
     }
 
-    .left p {
-      font-size: 1rem;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .buttons button {
-      width: 100%;
-      padding: 10px;
-      font-size: 1rem;
-    }
-
-    .circle_border {
-      width: 80px;
-      height: 80px;
-    }
-
-    .right {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 1rem;
-    }
-
-    .right img {
-      width: 80%;
-      max-width: 200px;
-    }
-
-    .graphic-circle,
-    .graphic-dots {
-      display: none; /* Hide extra graphics on small screens */
+    button {
+      font-size: 0.8rem;
+      padding: 0.6rem;
     }
   }
 `;

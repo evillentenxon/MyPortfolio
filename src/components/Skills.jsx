@@ -18,9 +18,9 @@ const SkillsBar = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setAnimated(entry.isIntersecting); // Set true when visible, false when out
+        setAnimated(entry.isIntersecting);
       },
-      { threshold: 0.3 } // Trigger when 30% of the component is visible
+      { threshold: 0.3 }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -33,9 +33,7 @@ const SkillsBar = () => {
       <div className="skills-container">
         {skills.map((skill, index) => (
           <div key={index} className="skill">
-            <span className="skill-label">
-              {skill.name} {skill.percentage}%
-            </span>
+            <span className="skill-label">{skill.name} {skill.percentage}%</span>
             <div className="skill-bar">
               <div
                 className={`skill-progress ${animated ? "animate" : ""}`}
@@ -88,5 +86,24 @@ const Div = styled.div`
 
   .skill-progress.animate {
     transition: width 1s ease-in-out;
+  }
+
+  /* ===== Mobile ===== */
+  @media screen and (max-width: 768px) {
+    .skill-label {
+      font-size: 0.9rem;
+    }
+    .skill-bar {
+      height: 8px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .skill-label {
+      font-size: 0.8rem;
+    }
+    .skill-bar {
+      height: 7px;
+    }
   }
 `;
