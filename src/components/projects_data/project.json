@@ -16,5 +16,11 @@
         "title": "GamingOrbit: Gaming Community",
         "describ":"It improves the interaction with gamers. Have features to create tournament, create tournament bracket(tiesheet), live stream, watch live stream. Gives game news update, rate and review games. Of course with authentication and login",
         "url":"https://github.com/evillentenxon/gobe"
+    },
+    {
+        "image": "/media/community.png",
+        "title": "commUNITY: Local Community Network website",
+        "describ":"commUNITY connects local neighborhoods by allowing users to post events, notices, and chat in real-time. Users can like or dislike posts and events, making it easy to highlight important updates and activities, all while strengthening community engagement.",
+        "url":"https://comm-unity-phi.vercel.app/"
     }
 ]
