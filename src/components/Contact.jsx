@@ -89,14 +89,14 @@ function Contact() {
 export default Contact;
 
 const Div = styled.div`
-  @keyframes appear {
+  @keyframes move-left {
     from {
       opacity: 0;
-      clip-path: inset(100% 100% 0 0);
+      transform: translateX(300px);
     }
     to {
       opacity: 1;
-      clip-path: inset(0 0 0 0);
+      transform: translateX(0);
     }
   }
 
@@ -133,7 +133,7 @@ const Div = styled.div`
     justify-content: center;
 
     & > div {
-      animation: appear linear;
+      animation: move-left linear;
       animation-timeline: view();
       animation-range: entry 0% cover 40%;
       flex: 1;

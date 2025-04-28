@@ -100,7 +100,7 @@ function Work() {
 export default Work;
 
 const Div = styled.div`
-  @keyframes appear {
+  @keyframes side_big {
     from {
       opacity: 0;
       clip-path: inset(100% 100% 0 0);
@@ -149,7 +149,7 @@ const Div = styled.div`
       width: 100%;
       max-width: 300px;
       flex: 1 1 300px;
-      animation: appear linear;
+      animation: side_big linear;
       animation-timeline: view();
       animation-range: entry 0% cover 40%;
 

@@ -12,8 +12,6 @@ function Resume() {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-  
-
   return (
     <Div>
       <div className="education">
@@ -50,7 +48,6 @@ function Resume() {
       </div>
 
       <a
-        // href="https://drive.google.com/file/d/1_wp4b83bTmTwJlo7vZcV57bkPhumOQJF/view?usp=sharing"
         href="https://drive.google.com/file/d/1_wp4b83bTmTwJlo7vZcV57bkPhumOQJF/view?usp=sharing"
         target="_blank"
         download="kiran_cv.pdf"
@@ -66,14 +63,14 @@ export default Resume;
 const Div = styled.div`
   margin-top: 5rem;
 
-  @keyframes appear {
+  @keyframes moveRight {
     from {
       opacity: 0;
-      clip-path: inset(100% 100% 0 0);
+      transform: translateX(-100px);
     }
     to {
       opacity: 1;
-      clip-path: inset(0 0 0 0);
+      transform: translateX(0);
     }
   }
 
@@ -82,8 +79,8 @@ const Div = styled.div`
       text-align: center;
     }
     hr {
-      border: none; /* Removes the default border */
-      height: 4px; /* Sets the thickness */
+      border: none;
+      height: 4px;
       background: linear-gradient(
         to right,
         #fff,
@@ -109,10 +106,9 @@ const Div = styled.div`
         max-width: 40vw;
         padding: 1.5rem;
         border-radius: 1rem;
-        animation: appear linear;
+        animation: moveRight linear;
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
-
 
         h1 {
           color: ${({ theme }) => theme.colors.green};

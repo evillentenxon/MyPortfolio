@@ -8,6 +8,7 @@ const skills = [
   { name: "HTML", percentage: 100 },
   { name: "CSS", percentage: 90 },
   { name: "JAVASCRIPT", percentage: 85 },
+  { name: "Tailwind CSS", percentage: 90 },
 ];
 
 const SkillsBar = () => {

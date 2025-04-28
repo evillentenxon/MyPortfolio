@@ -69,14 +69,14 @@ function Resume() {
 export default Resume;
 
 const Div = styled.div`
-  @keyframes appear {
+  @keyframes moveRight {
     from {
       opacity: 0;
-      clip-path: inset(100% 100% 0 0);
+      transform: translateX(-100px);
     }
     to {
       opacity: 1;
-      clip-path: inset(0 0 0 0);
+      transform: translateX(0);
     }
   }
 
@@ -138,7 +138,7 @@ const Div = styled.div`
         width: 40vw;
         padding: 1.5rem;
         border-radius: 1rem;
-        animation: appear linear;
+        animation: moveRight linear;
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
 
