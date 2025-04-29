@@ -253,6 +253,9 @@ const Div = styled.div`
         padding: 1.2rem 2.5rem;
         letter-spacing: 0.5cap;
         border-radius: 2rem;
+        animation: fade linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
       }
       a {
         text-decoration: none;

@@ -21,27 +21,33 @@ function Resume() {
         <hr />
         <div className="grid_container">
           <div className="exp">
-            <h2>2023–Present</h2>
-            <p className="title">MERN Intern</p>
-            <p className="subtitle">Lunar IT Solution Pvt. Ltd.</p>
-            <p className="description">
-              <i>Currently running</i>
-            </p>
+            <img src="./media/certificate.png" alt="intern_certificate" />
+            <div className="content">
+              <h2>2023–Present</h2>
+              <p className="title">MERN Intern</p>
+              <p className="subtitle">Lunar IT Solution Pvt. Ltd.</p>
+              <p className="description">
+                <i>Currently running</i>
+              </p>
+            </div>
           </div>
 
           <div className="exp">
-            <h2>2020–2021</h2>
-            <p className="title">Computer Repair and Maintenance</p>
-            <p className="subtitle">Computer Planet</p>
-            <p className="description">
-              Computer Planet is one of the biggest IT shops in Biratnagar,
-              providing both hardware and software services.
-            </p>
-            <ul>
-              <li>Learned how systems work.</li>
-              <li>Diagnosed and identified system problems.</li>
-              <li>Installed new device components and software.</li>
-            </ul>
+            <img src="./media/certificate.png" alt="intern_certificate" />
+            <div className="content">
+              <h2>2020–2021</h2>
+              <p className="title">Computer Repair and Maintenance</p>
+              <p className="subtitle">Computer Planet</p>
+              <p className="description">
+                Computer Planet is one of the biggest IT shops in Biratnagar,
+                providing both hardware and software services.
+              </p>
+              <ul>
+                <li>Learned how systems work.</li>
+                <li>Diagnosed and identified system problems.</li>
+                <li>Installed new device components and software.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -69,33 +75,17 @@ const Wrapper = styled.div`
 
   .title {
     text-align: center;
-    margin-bottom: 4rem;
 
     h1 {
-      position: relative;
       font-size: 3rem;
-      color: white;
-    }
-
-    h1::before {
-      content: "Resume";
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0.08;
-      font-size: 6rem;
-      font-weight: 800;
-      white-space: nowrap;
-      pointer-events: none;
+      margin-bottom: 1rem;
     }
 
     p {
-      margin-top: 1.5rem;
-      padding: 0 15%;
-      color: ${({ theme }) => theme.colors.Pcolor};
       font-size: 1rem;
-      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto;
+      color: ${({ theme }) => theme.colors.Pcolor};
     }
   }
 
@@ -118,7 +108,7 @@ const Wrapper = styled.div`
 
     .grid_container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       width: 90%;
       margin: 0 auto;
@@ -127,48 +117,72 @@ const Wrapper = styled.div`
       .exp {
         background-color: ${({ theme }) => theme.colors.bg};
         border-radius: 1rem;
-        padding: 2rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
         animation: moveRight 1s ease forwards;
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
 
-        h2 {
-          color: ${({ theme }) => theme.colors.green};
-          font-size: 1.5rem;
-          margin-bottom: 0.5rem;
-          text-align: left;
+        &:hover {
+          transform: translateY(-5px);
         }
 
-        .title {
-          font-size: 1.3rem;
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-          text-align: left;
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-bottom: 1px solid #ccc;
         }
 
-        .subtitle {
-          font-size: 1rem;
-          font-family: monospace;
-          color: ${({ theme }) => theme.colors.Pcolor};
-          margin-bottom: 1rem;
-          text-align: left;
-          text-transform: uppercase;
-        }
+        .content {
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
 
-        .description {
-          color: ${({ theme }) => theme.colors.Pcolor};
-          margin-bottom: 1rem;
-          text-align: left;
-        }
+          h2 {
+            color: ${({ theme }) => theme.colors.green};
+            font-size: 1rem;
+          }
 
-        ul {
-          list-style: disc;
-          margin-left: 1.5rem;
-          text-align: left;
-          li {
-            margin-bottom: 0.5rem;
+          .title {
+            font-size: 1.25rem;
+            font-weight: 700;
+          }
+
+          .subtitle {
+            font-size: 0.9rem;
+            font-family: monospace;
+            color: ${({ theme }) => theme.colors.Pcolor};
+            text-transform: uppercase;
+          }
+
+          .description {
+            font-size: 0.9rem;
             color: ${({ theme }) => theme.colors.Pcolor};
           }
+
+          ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+
+            li {
+              font-size: 0.9rem;
+              color: ${({ theme }) => theme.colors.Pcolor};
+            }
+          }
+        }
+
+        .price {
+          font-weight: bold;
+          font-size: 1rem;
+          color: ${({ theme }) => theme.colors.green};
+          text-align: right;
+          padding: 0.5rem 1rem 1rem;
         }
       }
     }
@@ -187,10 +201,6 @@ const Wrapper = styled.div`
   @media (max-width: 480px) {
     .title h1 {
       font-size: 2.5rem;
-    }
-
-    .title h1::before {
-      font-size: 4rem;
     }
 
     .resume h1 {

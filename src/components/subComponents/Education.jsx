@@ -24,20 +24,24 @@ function Resume() {
           }
         >
           <div className="edu">
+            <img src="/media/susma_college.png" alt="godawari_college" />
             <h1>2020-present</h1>
             <p className="title">
-              Bachelor in Science . Computer Science and Information Technology (BSc.CSIT)
+              Bachelor in Science . Computer Science and Information Technology
+              (BSc.CSIT)
             </p>
             <p className="subtitle">Godawari College</p>
             <p className="description">Private college of Itahari</p>
           </div>
           <div className="edu">
+            <img src="/media/vac.png" id="vac" alt="vac" />
             <h1>2017-2020</h1>
             <p className="title">Higher Secondary School</p>
             <p className="subtitle">Vishwa Aadarsha College</p>
             <p className="description">Private college of Itahari</p>
           </div>
           <div className="edu">
+            <img src="/media/balmiki1.jpg" alt="balmiki" />
             <h1>2017</h1>
             <p className="title">Secondary level Complete</p>
             <p className="subtitle">Balmiki Sec. Boarding School</p>
@@ -105,6 +109,20 @@ const Div = styled.div`
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
 
+        img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          border-radius: 50%;
+          margin: 0 auto 1rem;
+          display: block;
+          border: 3px solid ${({ theme }) => theme.colors.green};
+        }
+
+        #vac {
+          background-color: #fff;
+        }
+
         h1 {
           color: ${({ theme }) => theme.colors.green};
           font-size: 1.5rem;
@@ -157,6 +175,9 @@ const Div = styled.div`
     display: block;
     color: #000;
     letter-spacing: 0.05em;
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
   }
 
   a {

@@ -138,6 +138,9 @@ const Div = styled.div`
       letter-spacing: 0.5px;
       text-transform: uppercase;
       font-size: 14px;
+      animation: fade linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
     }
     .details {
       * {

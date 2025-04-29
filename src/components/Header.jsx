@@ -293,6 +293,17 @@ const Div = styled.div`
       background-color: rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(10px);
       animation: slide-in 0.6s ease forwards;
+
+      @keyframes slide-in {
+        from {
+          transform: translateX(-500px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
     }
 
     .hide {
