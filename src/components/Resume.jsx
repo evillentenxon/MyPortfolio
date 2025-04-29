@@ -21,7 +21,7 @@ function Resume() {
         <hr />
         <div className="grid_container">
           <div className="exp">
-            <img src="./media/certificate.png" alt="intern_certificate" />
+            <img src="./media/img-not-found.jpg" alt="intern_certificate" />
             <div className="content">
               <h2>2023–Present</h2>
               <p className="title">MERN Intern</p>
@@ -33,19 +33,45 @@ function Resume() {
           </div>
 
           <div className="exp">
-            <img src="./media/certificate.png" alt="intern_certificate" />
+            <img src="./media/work.jpeg" alt="intern_certificate" />
             <div className="content">
-              <h2>2020–2021</h2>
+              <h2>2023–2025</h2>
               <p className="title">Computer Repair and Maintenance</p>
-              <p className="subtitle">Computer Planet</p>
+              <p className="subtitle">S.K Computer & Electronics</p>
               <p className="description">
-                Computer Planet is one of the biggest IT shops in Biratnagar,
-                providing both hardware and software services.
+                It is one of the biggest IT shops in Biratnagar, providing both
+                hardware and software services.
               </p>
               <ul>
                 <li>Learned how systems work.</li>
                 <li>Diagnosed and identified system problems.</li>
                 <li>Installed new device components and software.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="exp">
+            <img src="./media/training.jpeg" alt="intern_certificate" />
+            <div className="content">
+              <h2>2021</h2>
+              <p className="title">Computer Operator and Maintainance</p>
+              <p className="subtitle">Sudiksha IT Center</p>
+              <p className="description">
+                I have completed training in Computer Operator and Maintenance
+                at one of the biggest IT shops in Biratnagar, which offers both
+                hardware and software services.
+              </p>
+              <ul>
+                <li>
+                  Learned how computer systems function and operate efficiently.
+                </li>
+                <li>
+                  Diagnosed and resolved common hardware and software issues.
+                </li>
+                <li>
+                  Installed, configured, and maintained device components and
+                  software.
+                </li>
               </ul>
             </div>
           </div>
@@ -77,22 +103,22 @@ const Wrapper = styled.div`
     text-align: center;
 
     h1 {
-    position: relative;
-    font-size: 50px;
-    color: white;
-    margin: 2rem 0;
-    text-align: center;
-  }
+      position: relative;
+      font-size: 50px;
+      color: white;
+      margin: 2rem 0;
+      text-align: center;
+    }
 
-  h1::before {
-    content: "Resume";
-    position: absolute;
-    opacity: 0.1;
-    font-size: 5rem;
-    font-weight: 700;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+    h1::before {
+      content: "Resume";
+      position: absolute;
+      opacity: 0.1;
+      font-size: 5rem;
+      font-weight: 700;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
     p {
       font-size: 1rem;
@@ -156,6 +182,7 @@ const Wrapper = styled.div`
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
+          flex:1;
 
           h2 {
             color: ${({ theme }) => theme.colors.green};
