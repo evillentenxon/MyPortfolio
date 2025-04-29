@@ -28,14 +28,29 @@ function About() {
           in building dynamic and user-friendly applications..."
         </p>
         <div className="details">
-          <p><span>Profile:</span> Web app developer</p>
-          <p><span>Education:</span> Bachelor of Engineering</p>
-          <p><span>Language:</span> Nepali, English, Hindi</p>
-          <p><span>Other Skills:</span> Excel, Git, Cloud, Figma, Word</p>
-          <p><span>Interest:</span> Traveling, Travel Photography, Teaching</p>
+          <p>
+            <span>Profile:</span> Web app developer
+          </p>
+          <p>
+            <span>Education:</span> Bachelor of Engineering
+          </p>
+          <p>
+            <span>Language:</span> Nepali, English, Hindi
+          </p>
+          <p>
+            <span>Other Skills:</span> Excel, Git, Cloud, Figma, Word
+          </p>
+          <p>
+            <span>Interest:</span> Traveling, Travel Photography, Teaching
+          </p>
         </div>
-        <p id="lastP"><span>3+</span> projects completed</p>
-        <a href="https://www.linkedin.com/in/roman-gautam-19aaa8274/" target="_blank">
+        <p id="lastP">
+          <span>4+</span> projects completed
+        </p>
+        <a
+          href="https://www.linkedin.com/in/roman-gautam-19aaa8274/"
+          target="_blank"
+        >
           <button>LinkedIn</button>
         </a>
       </div>
@@ -118,16 +133,19 @@ const Div = styled.div`
       font-size: 50px;
       color: white;
       margin: 2rem 0;
+      text-align: center;
     }
+
     h1::before {
       content: "About";
       position: absolute;
-      top: 0.7rem;
-      left: 3px;
       opacity: 0.1;
       font-size: 5rem;
       font-weight: 700;
+      left: 50%;
+      transform: translateX(-50%);
     }
+
     button {
       background: ${({ theme }) => theme.colors.green};
       border: none;
@@ -157,7 +175,8 @@ const Div = styled.div`
     & > div {
       width: 90%;
     }
-    .left, .right {
+    .left,
+    .right {
       padding: 0 1rem;
     }
     .up {
@@ -192,7 +211,9 @@ const Div = styled.div`
       width: 100px;
       height: 100px;
     }
-    .intro p, .details p, .right p {
+    .intro p,
+    .details p,
+    .right p {
       font-size: 0.9rem;
     }
     #lastP {

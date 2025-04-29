@@ -77,9 +77,22 @@ const Wrapper = styled.div`
     text-align: center;
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+    position: relative;
+    font-size: 50px;
+    color: white;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  h1::before {
+    content: "Resume";
+    position: absolute;
+    opacity: 0.1;
+    font-size: 5rem;
+    font-weight: 700;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
     p {
       font-size: 1rem;
