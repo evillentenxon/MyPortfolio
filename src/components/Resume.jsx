@@ -23,7 +23,7 @@ function Resume() {
           <div className="exp">
             <img src="./media/img-not-found.jpg" alt="intern_certificate" />
             <div className="content">
-              <h2>2023–Present</h2>
+              <h2>2025 ...running</h2>
               <p className="title">MERN Intern</p>
               <p className="subtitle">Lunar IT Solution Pvt. Ltd.</p>
               <p className="description">
