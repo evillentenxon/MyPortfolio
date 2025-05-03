@@ -51,7 +51,7 @@ function Resume() {
       </div>
 
       <a
-        href="https://drive.google.com/file/d/1k_5u0OQDPHn9N0DuEfohW2NvHkZbvGiw/view?usp=sharing"
+        href="https://drive.google.com/file/d/1xYq3u2Npmo3xu8Ys8Hb9MH519ioGCXEk/view?usp=sharing"
         target="_blank"
         download="kiran_cv.pdf"
       >
