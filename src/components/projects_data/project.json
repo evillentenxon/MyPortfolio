@@ -15,7 +15,7 @@
         "image": "/media/gamingOrbit.png",
         "title": "GamingOrbit: Gaming Community",
         "describ":"It improves the interaction with gamers. Have features to create tournament, create tournament bracket(tiesheet), live stream, watch live stream. Gives game news update, rate and review games. Of course with authentication and login",
-        "url":"https://github.com/evillentenxon/gobe"
+        "url":"https://gaming-orbit.vercel.app/"
     },
     {
         "image": "/media/community.png",
