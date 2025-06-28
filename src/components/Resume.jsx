@@ -21,14 +21,18 @@ function Resume() {
         <hr />
         <div className="grid_container">
           <div className="exp">
-            <img src="./media/img-not-found.jpg" alt="intern_certificate" />
+            <img src="./media/intern_certificate.png" alt="intern_certificate" />
             <div className="content">
-              <h2>2025 ...running</h2>
-              <p className="title">MERN Intern</p>
-              <p className="subtitle">Lunar IT Solution Pvt. Ltd.</p>
+              <h2>14th march, 2025 to 14th june, 2025</h2>
+              <p className="title">MERN Stack Internship</p>
+              <p className="subtitle">Digital Pathshala</p>
               <p className="description">
-                <i>Currently running</i>
+                Digital Pathshala is an EdTech platform providing affordable, career-focused IT education across Nepal.
               </p>
+              <ul>
+                <li>Fosters a supportive tech community of students and professionals.</li>
+                <li>Delivers project-based learning aligned with real-world needs.</li>
+              </ul>
             </div>
           </div>
 
