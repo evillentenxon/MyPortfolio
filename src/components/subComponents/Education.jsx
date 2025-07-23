@@ -25,7 +25,7 @@ function Resume() {
         >
           <div className="edu">
             <img src="/media/susma_college.png" alt="godawari_college" />
-            <h1>2020-present</h1>
+            <h1>2020-2025</h1>
             <p className="title">
               Bachelor in Science . Computer Science and Information Technology
               (BSc.CSIT)
@@ -36,14 +36,21 @@ function Resume() {
           <div className="edu">
             <img src="/media/vac.png" id="vac" alt="vac" />
             <h1>2017-2020</h1>
-            <p className="title">Higher Secondary School</p>
+            <p className="title">
+              Higher Secondary School
+              <br />
+              In science faculty
+            </p>
             <p className="subtitle">Vishwa Aadarsha College</p>
             <p className="description">Private college of Itahari</p>
           </div>
           <div className="edu">
             <img src="/media/balmiki1.jpg" alt="balmiki" />
             <h1>2017</h1>
-            <p className="title">Secondary level Complete</p>
+            <p className="title">
+              Secondary level Complete
+              <br /> Major subjects: science, math, computer
+            </p>
             <p className="subtitle">Balmiki Sec. Boarding School</p>
             <p className="description">Boarding school located in Biratnagar</p>
           </div>
