@@ -7,7 +7,7 @@ function About() {
     <Div>
       <div className="left">
         <div className="up">
-          <img src="/media/profile3.png" alt="my profile" />
+          <img src="/media/roman.jpeg" alt="my profile" />
           <div className="intro">
             <p>Name: Kiran Gautam</p>
             <p>Job Role: Website Developer</p>
